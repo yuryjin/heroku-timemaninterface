@@ -76,13 +76,13 @@
 
 
       async getTables() {
-        var response = await fetch('http://localhost:8000/database/tables/');
+        var response = await fetch('https://heroku-timeman.herokuapp.com/database/tables/');
         this.tables = await response.json();
       },
       async createTable() {
         await this.getTables();
 
-        await fetch('http://localhost:8000/database/tables/', {
+        await fetch('https://heroku-timeman.herokuapp.com/database/tables/', {
           method: 'post',
           headers: {
             'Content-Type': 'application/json'
@@ -94,7 +94,7 @@
       async editTable() {
         await this.getTables();
 
-        await fetch(`http://localhost:8000/database/tables/${this.table.id}/`, {
+        await fetch(`https://heroku-timeman.herokuapp.com/database/tables/${this.table.id}/`, {
           method: 'put',
           headers: {
             'Content-Type': 'application/json'
@@ -107,7 +107,7 @@
       async deleteTable(table) {
         await this.getTables();
 
-        await fetch(`http://localhost:8000/database/tables/${table.id}/`, {
+        await fetch(`https://heroku-timeman.herokuapp.com/database/tables/${table.id}/`, {
           method: 'delete',
           headers: {
             'Content-Type': 'application/json'
