@@ -7,17 +7,21 @@
         <h4>Create new event</h4>
         <form @submit.prevent="submitForm">
           <div class="form-group row">
-            <div class="col-3">
-              <input type="text" class="form form-control col-3 mx-2" placeholder="Event" v-model="table.event">
-            </div>
-            <div class="col-3">
-              <input type="date" class="form form-control col-3 mx-2" placeholder="Start" v-model="table.start">
-            </div>
-            <div class="col-3">
-              <input type="date" class="form form-control col-3 mx-2" placeholder="End" v-model="table.end">
-            </div>
-            <div class="col-3">
-              <button class="btn btn-success">Submit</button>
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+              <div class="row">
+                <div class="col-12">
+                  <input type="text" class="form form-control col-3 mx-2" placeholder="Event" v-model="table.event">
+                </div>
+                <div class="col-6">
+                  <input type="date" class="form form-control col-3 mx-2" placeholder="Start" v-model="table.start">
+                </div>
+                <div class="col-6">
+                  <input type="date" class="form form-control col-3 mx-2" placeholder="End" v-model="table.end">
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-success">Submit</button>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -32,12 +36,12 @@
           </thead>
           <tbody>
             <tr v-for="table in tables" :key="table.id">
-              <td>{{ table.event }}</td>
+              <td class="event-table">{{ table.event }}</td>
               <td>{{ table.start }}</td>
               <td>{{ table.end }}</td>
               <td>
                 <button class="brn btn-success btn-sm mx-1" @click="$data.table = table">Edit</button>
-                <button class="brn btn-danger btn-sm mx-1" @click="deleteTable(table)">Delete</button>
+                <button class="brn btn-danger btn-sm mx-1" @click="deleteTable(table)">x</button>
                 <!--<button class="brn btn-danger btn-sm mx-1" @click="deleteTableAxios(table)">Delete Axios</button>-->
               </td>
             </tr>
@@ -48,7 +52,18 @@
   </div>
 </template>
 
+<style>
+
+.event-table {
+  max-width: 50px; 
+  word-wrap: break-word;
+}
+
+</style>
+
+
 <style lang="stylus" scoped>
+
 
 </style>
 
